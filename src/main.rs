@@ -17,12 +17,12 @@ use tcod::input::{self, Event, Key, Mouse};
 use tcod::map::{FovAlgorithm, Map as FovMap};
 
 // actual size of the window
-const SCREEN_WIDTH: i32 = 160;
-const SCREEN_HEIGHT: i32 = 100;
+const SCREEN_WIDTH: i32 = 100;
+const SCREEN_HEIGHT: i32 = 60;
 
 // size of the map
-const MAP_WIDTH: i32 = 160;
-const MAP_HEIGHT: i32 = 80;
+const MAP_WIDTH: i32 = 100;
+const MAP_HEIGHT: i32 = 50;
 
 // sizes and coordinates relevant for the GUI
 const BAR_WIDTH: i32 = 20;
