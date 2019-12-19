@@ -6,9 +6,13 @@ TODO: add screenshot when the 7DRL is up
 
 ## Building
 
-Note that this project has only been tested on Windows. I had rendering issues on both High Sierra and Mojave due to Apple breaking libsdl in multiple places. Linux has not yet been tested at this time.
+For Windows, Make sure you have Visual Studio 2013 or later **with the C++ tools option** installed. You also need the "MSVC ABI" version of the Rust compiler (as opposed to the "GNU ABI" one).
 
-Make sure you have Visual Studio 2013 or later **with the C++ tools option** installed. You also need the "MSVC ABI" version of the Rust compiler (as opposed to the "GNU ABI" one).
+For Linux, make sure you have libsdl2 installed.
+
+```
+sudo apt-get install gcc g++ make libsdl2-dev
+```
 
 Then, set up the compilation environment, make sure Rust is in your PATH and run Cargo:
 

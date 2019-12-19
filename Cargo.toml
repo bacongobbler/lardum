@@ -5,7 +5,7 @@ authors = ["Matthew Fisher <matt.fisher@fishworks.io>"]
 edition = "2018"
 
 [dependencies]
-tcod = { version = "0.12.1", features = ["serialization"] }
+tcod = { version = "0.15", features = ["serialization"] }
 rand = "0.6.1"
 serde = "1.0.82"
 serde_derive = "1.0.82"
