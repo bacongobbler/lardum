@@ -248,35 +248,35 @@ impl Object {
         }
     }
 
-    pub fn max_hunger(&self, game: &Game) -> i32 {
+    pub fn max_hunger(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_comfort(&self, game: &Game) -> i32 {
+    pub fn max_comfort(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_hygiene(&self, game: &Game) -> i32 {
+    pub fn max_hygiene(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_bladder(&self, game: &Game) -> i32 {
+    pub fn max_bladder(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_energy(&self, game: &Game) -> i32 {
+    pub fn max_energy(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_fun(&self, game: &Game) -> i32 {
+    pub fn max_fun(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_social(&self, game: &Game) -> i32 {
+    pub fn max_social(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 
-    pub fn max_room(&self, game: &Game) -> i32 {
+    pub fn max_room(&self) -> i32 {
         return self.stats.map_or(0, |s| s.base_max_all_stats);
     }
 }
@@ -948,21 +948,21 @@ fn render_all(tcod: &mut Tcod, game: &mut Game, fov_recompute: bool) {
 
     // show the player's stats
     let hunger = game.objects[PLAYER].stats.map_or(0, |p| p.hunger);
-    let max_hunger = game.objects[PLAYER].max_hunger(game);
+    let max_hunger = game.objects[PLAYER].max_hunger();
     let comfort = game.objects[PLAYER].stats.map_or(0, |p| p.comfort);
-    let max_comfort = game.objects[PLAYER].max_comfort(game);
+    let max_comfort = game.objects[PLAYER].max_comfort();
     let hygiene = game.objects[PLAYER].stats.map_or(0, |p| p.hygiene);
-    let max_hygiene = game.objects[PLAYER].max_hygiene(game);
+    let max_hygiene = game.objects[PLAYER].max_hygiene();
     let bladder = game.objects[PLAYER].stats.map_or(0, |p| p.bladder);
-    let max_bladder = game.objects[PLAYER].max_bladder(game);
+    let max_bladder = game.objects[PLAYER].max_bladder();
     let energy = game.objects[PLAYER].stats.map_or(0, |p| p.energy);
-    let max_energy = game.objects[PLAYER].max_energy(game);
+    let max_energy = game.objects[PLAYER].max_energy();
     let fun = game.objects[PLAYER].stats.map_or(0, |p| p.fun);
-    let max_fun = game.objects[PLAYER].max_fun(game);
+    let max_fun = game.objects[PLAYER].max_fun();
     let social = game.objects[PLAYER].stats.map_or(0, |p| p.social);
-    let max_social = game.objects[PLAYER].max_social(game);
+    let max_social = game.objects[PLAYER].max_social();
     let room = game.objects[PLAYER].stats.map_or(0, |p| p.room);
-    let max_room = game.objects[PLAYER].max_room(game);
+    let max_room = game.objects[PLAYER].max_room();
 
     render_bar(
         &mut tcod.panel,
