@@ -1,20 +1,16 @@
-extern crate rand;
-extern crate serde;
-extern crate tcod;
 #[macro_use]
 extern crate serde_derive;
-extern crate serde_json;
-
-use std::cmp;
 
 use rand::Rng;
-use std::error::Error;
-use std::fs::File;
-use std::io::{Read, Write};
 use tcod::colors::{self, Color};
 use tcod::console::*;
 use tcod::input::{self, Event, Key, Mouse};
 use tcod::map::{FovAlgorithm, Map as FovMap};
+
+use std::cmp;
+use std::error::Error;
+use std::fs::File;
+use std::io::{Read, Write};
 
 // actual size of the window
 const SCREEN_WIDTH: i32 = 100;
@@ -579,11 +575,11 @@ fn make_map(objects: &mut Vec<Object>, level: u32) -> Map {
 
     for _ in 0..MAX_ROOMS {
         // random width and height
-        let w = rand::thread_rng().gen_range(ROOM_MIN_SIZE, ROOM_MAX_SIZE + 1);
-        let h = rand::thread_rng().gen_range(ROOM_MIN_SIZE, ROOM_MAX_SIZE + 1);
+        let w = rand::thread_rng().gen_range(ROOM_MIN_SIZE..ROOM_MAX_SIZE + 1);
+        let h = rand::thread_rng().gen_range(ROOM_MIN_SIZE..ROOM_MAX_SIZE + 1);
         // random position without going out of the boundaries of the map
-        let x = rand::thread_rng().gen_range(0, MAP_WIDTH - w);
-        let y = rand::thread_rng().gen_range(0, MAP_HEIGHT - h);
+        let x = rand::thread_rng().gen_range(0..MAP_WIDTH - w);
+        let y = rand::thread_rng().gen_range(0..MAP_HEIGHT - h);
 
         let new_room = Rect::new(x, y, w, h);
 
@@ -725,12 +721,12 @@ fn place_objects(room: Rect, map: &Map, objects: &mut Vec<Object>, level: u32) {
     let item_choice = WeightedIndex::new(item_chances.iter().map(|item| item.1)).unwrap();
 
     // choose random number of items
-    let num_items = rand::thread_rng().gen_range(0, max_items + 1);
+    let num_items = rand::thread_rng().gen_range(0..max_items + 1);
 
     for _ in 0..num_items {
         // choose random spot for this item
-        let x = rand::thread_rng().gen_range(room.x1 + 1, room.x2);
-        let y = rand::thread_rng().gen_range(room.y1 + 1, room.y2);
+        let x = rand::thread_rng().gen_range(room.x1 + 1..room.x2);
+        let y = rand::thread_rng().gen_range(room.y1 + 1..room.y2);
 
         // only place it if the tile is not blocked
         if !is_blocked(x, y, map, objects) {
